@@ -1,17 +1,11 @@
-'use client';
+import type { Metadata } from 'next';
+import Providers from './providers';
 
-import { WagmiProvider, createConfig, http } from 'wagmi';
-import { base } from 'wagmi/chains';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-const config = createConfig({
-  chains: [base],
-  transports: {
-    [base.id]: http(),
+export const metadata: Metadata = {
+  other: {
+    'base:app_id': '69a02afe9a3599e1bbf9866c',
   },
-});
-
-const queryClient = new QueryClient();
+};
 
 export default function RootLayout({
   children,
@@ -20,15 +14,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="base:app_id" content="69a02afe9a3599e1bbf9866c" />
-      </head>
       <body>
-        <WagmiProvider config={config}>
-          <QueryClientProvider client={queryClient}>
-            {children}
-          </QueryClientProvider>
-        </WagmiProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
