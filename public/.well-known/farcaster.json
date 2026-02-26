@@ -12,12 +12,12 @@
     "tagline": "Play. Prove. Onchain.",
     "primaryCategory": "games",
     "tags": ["games", "onchain", "base"],
-    "homeUrl": "http://localhost:3000",
-    "iconUrl": "http://localhost:3000/icon.png",
-    "splashImageUrl": "http://localhost:3000/icon.png",
+    "homeUrl": "https://base-mini-app-azure.vercel.app",
+    "iconUrl": "https://base-mini-app-azure.vercel.app/icon.png",
+    "splashImageUrl": "https://base-mini-app-azure.vercel.app/icon.png",
     "splashBackgroundColor": "#0B1020",
     "ogTitle": "Base Mini Game",
     "ogDescription": "A tiny mini app: tap-to-score + one-click onchain proof on Base.",
-    "ogImageUrl": "http://localhost:3000/hero.png"
+    "ogImageUrl": "https://base-mini-app-azure.vercel.app/hero.png"
   }
 }
