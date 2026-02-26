@@ -20,6 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="base:app_id" content="69a02afe9a3599e1bbf9866c" />
+      </head>
       <body>
         <WagmiProvider config={config}>
           <QueryClientProvider client={queryClient}>
