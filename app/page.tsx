@@ -1,8 +1,9 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useAccount, useSendTransaction } from 'wagmi';
 import { parseEther } from 'viem';
+import WalletActions from './components/WalletActions';
 
 export default function Home() {
   const [score, setScore] = useState(0);
@@ -29,9 +30,13 @@ export default function Home() {
         <div style={styles.headerRow}>
           <div>
             <div style={styles.title}>Base Mini Game</div>
-            <div style={styles.subtitle}>1-click clicker + onchain proof tx (Base mainnet)</div>
+            <div style={styles.subtitle}>
+              1-click clicker + onchain proof tx (Base mainnet)
+            </div>
           </div>
-          <div style={styles.badge}>{isConnected ? 'Wallet connected' : 'Open in Base App'}</div>
+          <div style={styles.badge}>
+            {isConnected ? 'Wallet connected' : 'Open in Base App'}
+          </div>
         </div>
 
         <div style={styles.scoreBox}>
@@ -47,19 +52,31 @@ export default function Home() {
         <div style={styles.section}>
           <div style={styles.sectionTitle}>Onchain proof</div>
           <div style={styles.sectionText}>
-            Sends a minimal transaction on <b>Base mainnet</b>. No value transfer, just proof of interaction.
+            Sends a minimal transaction on <b>Base mainnet</b>. No value transfer,
+            just proof of interaction.
           </div>
 
           <button
             onClick={onOnchainProof}
-            style={{ ...styles.secondaryBtn, opacity: !isConnected || isPending ? 0.6 : 1 }}
+            style={{
+              ...styles.secondaryBtn,
+              opacity: !isConnected || isPending ? 0.6 : 1,
+            }}
             disabled={!isConnected || isPending}
           >
             {isPending ? 'Sending…' : 'Send proof tx'}
           </button>
 
-          {isSuccess && <div style={styles.success}>✅ Sent. Check your wallet activity.</div>}
+          {isSuccess && (
+            <div style={styles.success}>✅ Sent. Check your wallet activity.</div>
+          )}
           {error && <div style={styles.error}>⚠️ {error.message}</div>}
+        </div>
+
+        <div style={styles.divider} />
+
+        <div style={{ paddingTop: 6 }}>
+          <WalletActions />
         </div>
 
         <div style={styles.footer}>
@@ -117,8 +134,7 @@ const styles: Record<string, React.CSSProperties> = {
     border: 'none',
     borderRadius: 12,
     padding: '10px 14px',
-    fontWeight: 800,
-    cursor: 'pointer',
+    fontWeight: 800,cursor: 'pointer',
   },
   divider: { height: 1, background: 'rgba(255,255,255,0.10)', margin: '16px 0' },
   section: { display: 'grid', gap: 10 },
@@ -126,7 +142,8 @@ const styles: Record<string, React.CSSProperties> = {
   sectionText: { opacity: 0.85, fontSize: 13, lineHeight: 1.4 },
   secondaryBtn: {
     borderRadius: 12,
-    padding: '10px 14px',fontWeight: 800,
+    padding: '10px 14px',
+    fontWeight: 800,
     cursor: 'pointer',
     border: '1px solid rgba(255,255,255,0.18)',
     background: 'rgba(0,0,0,0.25)',
