@@ -1,0 +1,23 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "miniapp": {
+    "version": "1",
+    "name": "Base Mini Game",
+    "subtitle": "1-click onchain game",
+    "description": "Tap to score, then send a 1-click onchain proof tx on Base mainnet.",
+    "tagline": "Play. Prove. Onchain.",
+    "primaryCategory": "games",
+    "tags": ["games", "onchain", "base"],
+    "homeUrl": "http://localhost:3000",
+    "iconUrl": "http://localhost:3000/icon.png",
+    "splashImageUrl": "http://localhost:3000/icon.png",
+    "splashBackgroundColor": "#0B1020",
+    "ogTitle": "Base Mini Game",
+    "ogDescription": "A tiny mini app: tap-to-score + one-click onchain proof on Base.",
+    "ogImageUrl": "http://localhost:3000/hero.png"
+  }
+}
